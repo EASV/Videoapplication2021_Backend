@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\InnoTech.VideoApplication2021.Domain\InnoTech.VideoApplication2021.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

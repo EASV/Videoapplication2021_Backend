@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.UI", "InnoTech.VideoApplication2021.UI\InnoTech.VideoApplication2021.UI.csproj", "{FF76FB29-586D-42DD-ACB4-F8779939F88E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{44CBBDCE-C02E-4DB1-B3C0-10ADE50A168F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{197E6D72-F829-49E2-800D-D58821C1677B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnotTech.VideoApplication2021.Core", "InnotTech.VideoApplication2021.Core\InnotTech.VideoApplication2021.Core.csproj", "{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.Domain", "InnoTech.VideoApplication2021.Domain\InnoTech.VideoApplication2021.Domain.csproj", "{829E57A0-8E00-4033-BBB5-24EF8247E887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.Infrastructure.DataAccess", "InnoTech.VideoApplication2021.Infrastructure.DataAccess\InnoTech.VideoApplication2021.Infrastructure.DataAccess.csproj", "{68D73732-DAB2-4703-B1B8-CFD2BB414F2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{EB697A06-286A-4007-B730-E58C4245FC1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.SQL", "InnoTech.VideoApplication2021.SQL\InnoTech.VideoApplication2021.SQL.csproj", "{684E25A3-94B5-4048-BDC7-5343C909A0AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{829E57A0-8E00-4033-BBB5-24EF8247E887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829E57A0-8E00-4033-BBB5-24EF8247E887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829E57A0-8E00-4033-BBB5-24EF8247E887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829E57A0-8E00-4033-BBB5-24EF8247E887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68D73732-DAB2-4703-B1B8-CFD2BB414F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68D73732-DAB2-4703-B1B8-CFD2BB414F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68D73732-DAB2-4703-B1B8-CFD2BB414F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68D73732-DAB2-4703-B1B8-CFD2BB414F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{684E25A3-94B5-4048-BDC7-5343C909A0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684E25A3-94B5-4048-BDC7-5343C909A0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684E25A3-94B5-4048-BDC7-5343C909A0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684E25A3-94B5-4048-BDC7-5343C909A0AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF} = {44CBBDCE-C02E-4DB1-B3C0-10ADE50A168F}
+		{FF76FB29-586D-42DD-ACB4-F8779939F88E} = {197E6D72-F829-49E2-800D-D58821C1677B}
+		{829E57A0-8E00-4033-BBB5-24EF8247E887} = {44CBBDCE-C02E-4DB1-B3C0-10ADE50A168F}
+		{68D73732-DAB2-4703-B1B8-CFD2BB414F2E} = {EB697A06-286A-4007-B730-E58C4245FC1B}
+		{684E25A3-94B5-4048-BDC7-5343C909A0AB} = {EB697A06-286A-4007-B730-E58C4245FC1B}
+	EndGlobalSection
+EndGlobal
