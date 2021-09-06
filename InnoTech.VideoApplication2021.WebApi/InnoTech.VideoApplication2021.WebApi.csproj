@@ -14,6 +14,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\InnoTech.VideoApplication2021.Domain\InnoTech.VideoApplication2021.Domain.csproj" />
+      <ProjectReference Include="..\InnoTech.VideoApplication2021.SQL\InnoTech.VideoApplication2021.SQL.csproj" />
       <ProjectReference Include="..\InnotTech.VideoApplication2021.Core\InnotTech.VideoApplication2021.Core.csproj" />
     </ItemGroup>
 

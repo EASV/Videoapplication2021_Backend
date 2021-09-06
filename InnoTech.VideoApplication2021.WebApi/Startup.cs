@@ -2,6 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InnoTech.VideoApplication2021.Domain.IRepositories;
+using InnoTech.VideoApplication2021.Domain.Services;
+using InnoTech.VideoApplication2021.SQL.Repositories;
+using InnotTech.VideoApplication2021.Core.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +36,8 @@ namespace InnoTech.VideoApplication2021.WebApi
                 c.SwaggerDoc("v1",
                     new OpenApiInfo { Title = "InnoTech.VideoApplication2021.WebApi", Version = "v1" });
             });
+            services.AddScoped<IVideoRepository, VideoRepository>();
+            services.AddScoped<IVideoService, VideoService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
