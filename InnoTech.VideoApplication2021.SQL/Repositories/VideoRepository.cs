@@ -36,5 +36,11 @@ namespace InnoTech.VideoApplication2021.SQL.Repositories
 
             return listOfVideos;
         }
+
+        public Video FindById(int id)
+        {
+            var entity = _videosTable.FirstOrDefault(video => video.Id == id);
+            return _videoConverter.Convert(entity);
+        }
     }
 }

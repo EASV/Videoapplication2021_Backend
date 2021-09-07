@@ -7,5 +7,6 @@ namespace InnoTech.VideoApplication2021.Domain.IRepositories
     {
         Video Add(Video video);
         List<Video> FindAll();
+        Video FindById(int id);
     }
 }

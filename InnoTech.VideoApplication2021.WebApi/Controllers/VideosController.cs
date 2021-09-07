@@ -22,6 +22,12 @@ namespace InnoTech.VideoApplication2021.WebApi.Controllers
         {
             return Ok(_service.ReadAll());
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Video> GetById(int id)
+        {
+            return Ok(_service.ReadById(id));
+        }
         
         //Create Video by passing in JSON in the Body
         [HttpPost]

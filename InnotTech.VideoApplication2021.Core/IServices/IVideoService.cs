@@ -8,5 +8,6 @@ namespace InnotTech.VideoApplication2021.Core.IServices
         Video Create(Video video);
 
         List<Video> ReadAll();
+        Video ReadById(int id);
     }
 }
