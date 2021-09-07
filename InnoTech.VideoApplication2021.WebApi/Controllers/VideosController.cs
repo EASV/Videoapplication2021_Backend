@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using InnotTech.VideoApplication2021.Core.IServices;
 using InnotTech.VideoApplication2021.Core.Models;
@@ -15,10 +16,21 @@ namespace InnoTech.VideoApplication2021.WebApi.Controllers
             _service = service;
         }
         
+        //Read All Videos
         [HttpGet]
-        public List<Video> Get()
+        public ActionResult<List<Video>> Get()
         {
-            return _service.ReadAll();
+            return Ok(_service.ReadAll());
+        }
+        
+        //Create Video by passing in JSON in the Body
+        [HttpPost]
+        public ActionResult<Video> CreateVideo([FromBody] Video video)
+        {
+            var newVideo = _service.Create(video);
+            return Created(
+                $"https://localhost:5001/api/videos/{newVideo.Id}", 
+                newVideo);
         }
     }
 }
