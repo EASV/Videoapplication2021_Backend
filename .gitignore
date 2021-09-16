@@ -1,5 +1,8 @@
 # globs
 Makefile.in
+*.db
+*.db-shm
+*.db-wal
 *.userprefs
 *.usertasks
 config.make
