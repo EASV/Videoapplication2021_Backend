@@ -1,19 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using InnoTech.VideoApplication2021.Domain.IRepositories;
 using InnoTech.VideoApplication2021.Domain.Services;
 using InnoTech.VideoApplication2021.SQL.Repositories;
 using InnotTech.VideoApplication2021.Core.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace InnoTech.VideoApplication2021.WebApi
@@ -34,8 +27,27 @@ namespace InnoTech.VideoApplication2021.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1",
-                    new OpenApiInfo { Title = "InnoTech.VideoApplication2021.WebApi", Version = "v1" });
+                    new OpenApiInfo { 
+                        Title = "InnoTech.VideoApplication2021.WebApi", 
+                        Version = "v1" 
+                    });
             });
+            
+            /*var loggerFactory = LoggerFactory.Create(builder => {
+                    builder.AddConsole();
+                }
+            );
+            
+            services.AddDbContext<VideoApplicationContext>(
+                opt =>
+                {
+                    opt
+                        .UseLoggerFactory(loggerFactory)
+                        .UseSqlite("Data Source=videoApp.db");
+                }, ServiceLifetime.Transient);
+            */
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IVideoRepository, VideoRepository>();
             services.AddScoped<IVideoService, VideoService>();
         }
@@ -48,7 +60,16 @@ namespace InnoTech.VideoApplication2021.WebApi
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "InnoTech.VideoApplication2021.WebApi v1"));
+                    c.SwaggerEndpoint(
+                        "/swagger/v1/swagger.json", 
+                        "InnoTech.VideoApplication2021.WebApi v1"));
+                
+                /*using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<VideoApplicationContext>();
+                    ctx.Database.EnsureDeleted();
+                    ctx.Database.EnsureCreated();
+                 }*/
             }
 
             app.UseHttpsRedirection();

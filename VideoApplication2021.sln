@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.UI", "InnoTech.VideoApplication2021.UI\InnoTech.VideoApplication2021.UI.csproj", "{FF76FB29-586D-42DD-ACB4-F8779939F88E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{44CBBDCE-C02E-4DB1-B3C0-10ADE50A168F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{197E6D72-F829-49E2-800D-D58821C1677B}"
@@ -12,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication20
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{EB697A06-286A-4007-B730-E58C4245FC1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.SQL", "InnoTech.VideoApplication2021.SQL\InnoTech.VideoApplication2021.SQL.csproj", "{684E25A3-94B5-4048-BDC7-5343C909A0AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.Fake.SQL", "InnoTech.VideoApplication2021.Fake.SQL\InnoTech.VideoApplication2021.Fake.SQL.csproj", "{684E25A3-94B5-4048-BDC7-5343C909A0AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InnoTech.VideoApplication2021.WebApi", "InnoTech.VideoApplication2021.WebApi\InnoTech.VideoApplication2021.WebApi.csproj", "{D511489A-1D92-473C-950A-E28DC40E2A6F}"
 EndProject
@@ -22,10 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF76FB29-586D-42DD-ACB4-F8779939F88E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,7 +39,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A983E876-69AD-4B27-AD6D-0AC8C8DE6BBF} = {44CBBDCE-C02E-4DB1-B3C0-10ADE50A168F}
-		{FF76FB29-586D-42DD-ACB4-F8779939F88E} = {197E6D72-F829-49E2-800D-D58821C1677B}
 		{829E57A0-8E00-4033-BBB5-24EF8247E887} = {44CBBDCE-C02E-4DB1-B3C0-10ADE50A168F}
 		{684E25A3-94B5-4048-BDC7-5343C909A0AB} = {EB697A06-286A-4007-B730-E58C4245FC1B}
 		{D511489A-1D92-473C-950A-E28DC40E2A6F} = {197E6D72-F829-49E2-800D-D58821C1677B}

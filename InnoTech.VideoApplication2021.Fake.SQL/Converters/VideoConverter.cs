@@ -12,7 +12,12 @@ namespace InnoTech.VideoApplication2021.SQL.Converters
                 Id = entity.Id,
                 ReleaseDate = entity.ReleaseDate,
                 StoryLine = entity.StoryLine,
-                Title = entity.Title
+                Title = entity.Title,
+                Genre = new Genre
+                {
+                    Id = entity.GenreId,
+                    Name = entity.Genre.Name
+                }
             };
         }
         
@@ -24,7 +29,7 @@ namespace InnoTech.VideoApplication2021.SQL.Converters
                 ReleaseDate = video.ReleaseDate,
                 StoryLine = video.StoryLine,
                 Title = video.Title,
-                GenreId = video.Genre != null ? video.Genre.Id : 0
+                GenreId = video.Genre?.Id ?? 0
             };
         }
     }

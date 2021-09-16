@@ -12,15 +12,19 @@ namespace InnoTech.VideoApplication2021.SQL.Repositories
         private static List<VideoEntity> _videosTable = new List<VideoEntity>();
         private static int _id = 1;
         private readonly VideoConverter _videoConverter;
-        
-        public VideoRepository()
+        private readonly IGenreRepository _genreRepository;
+
+        public VideoRepository(IGenreRepository genreRepository)
         {
             _videoConverter = new VideoConverter();
+            _genreRepository = genreRepository;
         }
         public Video Add(Video video)
         {
             var videoEntity = _videoConverter.Convert(video);
             videoEntity.Id = _id++;
+            videoEntity.GenreId = video.Genre.Id;
+            videoEntity.Genre = _genreRepository.ReadById(video.Genre.Id);
             _videosTable.Add(videoEntity);
             return _videoConverter.Convert(videoEntity);
         }
@@ -30,7 +34,9 @@ namespace InnoTech.VideoApplication2021.SQL.Repositories
             var listOfVideos = new List<Video>();
             foreach (var videoEntity in _videosTable)
             {
-                listOfVideos.Add(_videoConverter.Convert(videoEntity));
+                var video = _videoConverter.Convert(videoEntity);
+                video.Genre = _genreRepository.ReadById(video.Genre.Id);
+                listOfVideos.Add(video);
             }
 
             return listOfVideos;

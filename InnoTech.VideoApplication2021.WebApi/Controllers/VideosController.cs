@@ -12,6 +12,7 @@ namespace InnoTech.VideoApplication2021.WebApi.Controllers
     public class VideosController : ControllerBase
     {
         private readonly IVideoService _service;
+        
         public VideosController(IVideoService service)
         {
             _service = service;
@@ -25,7 +26,7 @@ namespace InnoTech.VideoApplication2021.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Video> GetById(int id)
+        public ActionResult<GetVideoByIdDto> GetById(int id)
         {
             var video = _service.ReadById(id);
             return Ok(new GetVideoByIdDto
@@ -40,15 +41,32 @@ namespace InnoTech.VideoApplication2021.WebApi.Controllers
         [HttpPost]
         public ActionResult<Video> CreateVideo([FromBody] PostVideoDto dto)
         {
-            var newVideo = _service.Create(new Video
+            var videoFromDto = new Video
             {
                 Title = dto.Title,
                 StoryLine = dto.StoryLine,
-                ReleaseDate = dto.ReleaseDate
-            });
-            return Created(
-                $"https://localhost:5001/api/videos/{newVideo.Id}", 
-                newVideo);
+                ReleaseDate = dto.ReleaseDate,
+                Genre = new Genre
+                {
+                    Id = dto.GenreId
+                }
+            };
+            try
+            {
+                var newVideo = _service.Create(videoFromDto);
+                return Created(
+                    $"https://localhost:5001/api/videos/{newVideo.Id}",
+                    newVideo);
+            }
+            catch (ArgumentException ae)
+            {
+                return BadRequest(ae.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+            
         }
 
         [HttpPut("{id}")]

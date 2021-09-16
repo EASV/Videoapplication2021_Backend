@@ -5,17 +5,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.9" />
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\InnoTech.VideoApplication2021.Domain\InnoTech.VideoApplication2021.Domain.csproj" />
-      <ProjectReference Include="..\InnoTech.VideoApplication2021.SQL\InnoTech.VideoApplication2021.SQL.csproj" />
+      <ProjectReference Include="..\InnoTech.VideoApplication2021.EFSql\InnoTech.VideoApplication2021.EFSql.csproj" />
+      <ProjectReference Include="..\InnoTech.VideoApplication2021.EntityFramework\InnoTech.VideoApplication2021.EntityFramework.csproj" />
+      <ProjectReference Include="..\InnoTech.VideoApplication2021.Fake.SQL\InnoTech.VideoApplication2021.Fake.SQL.csproj" />
       <ProjectReference Include="..\InnotTech.VideoApplication2021.Core\InnotTech.VideoApplication2021.Core.csproj" />
     </ItemGroup>
 
