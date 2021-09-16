@@ -26,6 +26,14 @@ namespace InnoTech.VideoApplication2021.WebApi
                         .UseSqlite("Data Source=videoApp.db");
                 }, ServiceLifetime.Transient);
             */
+    
+    
+    /*using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<VideoApplicationContext>();
+                    ctx.Database.EnsureDeleted();
+                    ctx.Database.EnsureCreated();
+                 }*/
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -58,7 +66,7 @@ namespace InnoTech.VideoApplication2021.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, VideoApplicationDbContext ctx)
         {
             if (env.IsDevelopment())
             {
@@ -68,13 +76,8 @@ namespace InnoTech.VideoApplication2021.WebApi
                     c.SwaggerEndpoint(
                         "/swagger/v1/swagger.json", 
                         "InnoTech.VideoApplication2021.WebApi v1"));
-                
-                /*using (var scope = app.ApplicationServices.CreateScope())
-                {
-                    var ctx = scope.ServiceProvider.GetService<VideoApplicationContext>();
-                    ctx.Database.EnsureDeleted();
-                    ctx.Database.EnsureCreated();
-                 }*/
+                ctx.Database.EnsureDeleted();
+                ctx.Database.EnsureCreated();
             }
 
             app.UseHttpsRedirection();
