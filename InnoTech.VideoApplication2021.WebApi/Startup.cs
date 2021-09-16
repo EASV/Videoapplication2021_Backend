@@ -1,9 +1,11 @@
 using InnoTech.VideoApplication2021.Domain.IRepositories;
 using InnoTech.VideoApplication2021.Domain.Services;
+using InnoTech.VideoApplication2021.EFCore;
 using InnoTech.VideoApplication2021.SQL.Repositories;
 using InnotTech.VideoApplication2021.Core.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +13,19 @@ using Microsoft.OpenApi.Models;
 
 namespace InnoTech.VideoApplication2021.WebApi
 {
+    /*var loggerFactory = LoggerFactory.Create(builder => {
+                    builder.AddConsole();
+                }
+            );
+            
+            services.AddDbContext<VideoApplicationContext>(
+                opt =>
+                {
+                    opt
+                        .UseLoggerFactory(loggerFactory)
+                        .UseSqlite("Data Source=videoApp.db");
+                }, ServiceLifetime.Transient);
+            */
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -32,20 +47,10 @@ namespace InnoTech.VideoApplication2021.WebApi
                         Version = "v1" 
                     });
             });
-            
-            /*var loggerFactory = LoggerFactory.Create(builder => {
-                    builder.AddConsole();
-                }
-            );
-            
-            services.AddDbContext<VideoApplicationContext>(
-                opt =>
-                {
-                    opt
-                        .UseLoggerFactory(loggerFactory)
-                        .UseSqlite("Data Source=videoApp.db");
-                }, ServiceLifetime.Transient);
-            */
+            services.AddDbContext<VideoApplicationDbContext>(options =>
+            {
+                options.UseSqlite("Data Source=application.db");
+            });
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IVideoRepository, VideoRepository>();
