@@ -25,5 +25,34 @@ namespace InnoTech.VideoApplication2021.WebApi.Controllers
         {
             return Ok(_genreService.ReadAll());
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Genre> GetById(int id)
+        {
+            return Ok(_genreService.ReadById(id));
+        }
+
+        [HttpPost]
+        public ActionResult<Genre> Create([FromBody] Genre genre)
+        {
+            return Ok(_genreService.Create(genre));
+        }
+        
+        [HttpDelete("{id}")]
+        public ActionResult<Genre> Delete(int id)
+        {
+            return Ok(_genreService.Delete(id));
+        }
+        
+        [HttpPut("{id}")]
+        public ActionResult<Genre> Put(int id, [FromBody] Genre genre)
+        {
+            if (id != genre.Id)
+            {
+                return BadRequest("Id must match id in json object");
+            }
+            return Ok(_genreService.Update(genre));
+        }
+
     }
 }

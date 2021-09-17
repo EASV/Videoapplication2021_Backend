@@ -51,5 +51,20 @@ namespace InnoTech.VideoApplication2021.SQL.Repositories
                 Name = entity.Name
             };
         }
+
+        public Genre Create(Genre genre)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Genre Delete(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Genre Update(Genre genre)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

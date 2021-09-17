@@ -18,5 +18,25 @@ namespace InnoTech.VideoApplication2021.Domain.Services
         {
             return _genreRepository.FindAll();
         }
+
+        public Genre ReadById(int id)
+        {
+            return _genreRepository.ReadById(id);
+        }
+
+        public Genre Create(Genre genre)
+        {
+            return _genreRepository.Create(genre);
+        }
+
+        public Genre Delete(int id)
+        {
+            return _genreRepository.Delete(id);
+        }
+
+        public Genre Update(Genre genre)
+        {
+            return _genreRepository.Update(genre);
+        }
     }
 }
