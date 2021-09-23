@@ -7,7 +7,7 @@ namespace InnoTech.VideoApplication2021.Domain.IRepositories
     {
         List<Genre> FindAll();
         Genre ReadById(int id);
-        Genre Create(Genre genre);
+        Genre Add(Genre genre);
         Genre Delete(int id);
         Genre Update(Genre genre);
     }

@@ -17,18 +17,6 @@ namespace InnoTech.VideoApplication2021.EFCore.Repositories
 
         public List<Genre> FindAll()
         {
-            /*var list = new List<Genre>();
-            var entityList = _ctx.Genres.ToList();
-            foreach (var entity in entityList)
-            {
-                list.Add(new Genre
-                {
-                    Id = entity.Id,
-                    Name = entity.Name
-                });
-            }
-            return list;*/
-
             return _ctx.Genres
                 .Select(genreEntity => new Genre
                 {
@@ -49,7 +37,7 @@ namespace InnoTech.VideoApplication2021.EFCore.Repositories
                 .FirstOrDefault(g => g.Id == id);
         }
 
-        public Genre Create(Genre genre)
+        public Genre Add(Genre genre)
         {
             var entity = _ctx.Genres.Add(new GenreEntity
             {

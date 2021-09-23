@@ -26,7 +26,7 @@ namespace InnoTech.VideoApplication2021.Domain.Services
 
         public Genre Create(Genre genre)
         {
-            return _genreRepository.Create(genre);
+            return _genreRepository.Add(genre);
         }
 
         public Genre Delete(int id)

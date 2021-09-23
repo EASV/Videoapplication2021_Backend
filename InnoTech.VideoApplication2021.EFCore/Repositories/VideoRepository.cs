@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using InnoTech.VideoApplication2021.Domain.IRepositories;
+using InnoTech.VideoApplication2021.EFCore.Entities;
 using InnotTech.VideoApplication2021.Core.Models;
 
 namespace InnoTech.VideoApplication2021.EFCore.Repositories
@@ -15,27 +17,77 @@ namespace InnoTech.VideoApplication2021.EFCore.Repositories
 
         public Video Add(Video video)
         {
-            throw new System.NotImplementedException();
+            var entity = _ctx.Videos.Add(new VideoEntity
+            {
+                Id = video.Id,
+                Title = video.Title,
+                ReleaseDate = video.ReleaseDate,
+                StoryLine = video.StoryLine
+            }).Entity;
+            _ctx.SaveChanges();
+            return new Video()
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                ReleaseDate = entity.ReleaseDate,
+                StoryLine = entity.StoryLine
+            };
         }
 
         public List<Video> FindAll()
         {
-            throw new System.NotImplementedException();
+            return _ctx.Videos
+                .Select(entity => new Video()
+                {
+                    Id = entity.Id,
+                    Title = entity.Title,
+                    ReleaseDate = entity.ReleaseDate,
+                    StoryLine = entity.StoryLine
+                })
+                .ToList();
         }
 
         public Video FindById(int id)
         {
-            throw new System.NotImplementedException();
+            return _ctx.Videos
+                .Select(entity => new Video()
+                {
+                    Id = entity.Id,
+                    Title = entity.Title,
+                    ReleaseDate = entity.ReleaseDate,
+                    StoryLine = entity.StoryLine
+                })
+                .FirstOrDefault(v => v.Id == id);
         }
 
         public Video Update(Video video)
         {
-            throw new System.NotImplementedException();
+            var entity = _ctx.Videos.Update(
+                new VideoEntity()
+                {
+                    Id = video.Id,
+                    Title = video.Title,
+                    ReleaseDate = video.ReleaseDate,
+                    StoryLine = video.StoryLine
+                }).Entity;
+            _ctx.SaveChanges();
+            return new Video()
+            {
+                Id = entity.Id,
+                Title = entity.Title,
+                ReleaseDate = entity.ReleaseDate,
+                StoryLine = entity.StoryLine
+            };
         }
 
         public Video Remove(int id)
         {
-            throw new System.NotImplementedException();
+            var entity = _ctx.Videos.Remove(new VideoEntity { Id = id }).Entity;
+            _ctx.SaveChanges();
+            return new Video()
+            {
+                Id = entity.Id
+            };
         }
     }
 }
