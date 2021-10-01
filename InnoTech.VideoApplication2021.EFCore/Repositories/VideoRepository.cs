@@ -42,7 +42,12 @@ namespace InnoTech.VideoApplication2021.EFCore.Repositories
                     Id = entity.Id,
                     Title = entity.Title,
                     ReleaseDate = entity.ReleaseDate,
-                    StoryLine = entity.StoryLine
+                    StoryLine = entity.StoryLine,
+                    Genre = entity.GenreId.HasValue ? new Genre
+                    {
+                        Id = entity.Genre.Id,
+                        Name = entity.Genre.Name
+                    } : null
                 })
                 .ToList();
         }

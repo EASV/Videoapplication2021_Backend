@@ -11,16 +11,30 @@ namespace InnoTech.VideoApplication2021.EFCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<VideoEntity>()
+                .HasOne(v => v.Genre)
+                .WithMany()
+                .HasForeignKey(v => new { v.GenreId })
+                .OnDelete(DeleteBehavior.SetNull);
+            
             modelBuilder.Entity<GenreEntity>().HasData(new GenreEntity { Id = 1, Name = "Horror" });
             modelBuilder.Entity<GenreEntity>().HasData(new GenreEntity { Id = 2, Name = "Comedy" });
             
             modelBuilder.Entity<VideoEntity>().HasData(new VideoEntity()
             {
-                Id = 1, Title = "Horror Days", ReleaseDate = DateTime.Now, StoryLine = "Yahh", GenreEntityId = 1
+                Id = 1, 
+                Title = "Horror Days", 
+                ReleaseDate = DateTime.Now, 
+                StoryLine = "Yahh", 
+                GenreId = 1
             });
             modelBuilder.Entity<VideoEntity>().HasData(new VideoEntity()
             {
-                Id = 2, Title = "Comedy Days", ReleaseDate = DateTime.Now, StoryLine = "juibii", GenreEntityId = 2
+                Id = 2, 
+                Title = "Comedy Days", 
+                ReleaseDate = DateTime.Now, 
+                StoryLine = "juibii", 
+                GenreId = 2
             });
         }
 
